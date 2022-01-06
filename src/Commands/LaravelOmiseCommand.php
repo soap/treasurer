@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Soap\LaravelOmise\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelOmiseCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-omise';
 
     public $description = 'My command';
 
