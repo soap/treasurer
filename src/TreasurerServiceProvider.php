@@ -2,9 +2,9 @@
 
 namespace Soap\Treasurer;
 
+use Soap\Treasurer\Commands\OmiseCustomersCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Soap\Treasurer\Commands\OmiseCustomersCommand;
 
 class TreasurerServiceProvider extends PackageServiceProvider
 {
