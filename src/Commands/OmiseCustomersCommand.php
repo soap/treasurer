@@ -15,6 +15,7 @@ class OmiseCustomersCommand extends Command
     {
         $response = OmiseCustomer::create([]);
         dd($response);
+
         return self::SUCCESS;
     }
 }
