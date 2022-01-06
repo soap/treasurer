@@ -1,6 +1,6 @@
 <?php
 
-namespace Soap\LaravelOmise\Database\Factories;
+namespace Soap\Treasurer\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

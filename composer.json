@@ -1,12 +1,12 @@
 {
-    "name": "soap/laravel-omise",
+    "name": "soap/treasurer",
     "description": "Laravel integration for OMISE payment service",
     "keywords": [
         "soap",
         "laravel",
-        "laravel-omise"
+        "treasurer"
     ],
-    "homepage": "https://github.com/soap/laravel-omise",
+    "homepage": "https://github.com/soap/treasurer",
     "license": "MIT",
     "authors": [
         {
@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Soap\\LaravelOmise\\": "src",
-            "Soap\\LaravelOmise\\Database\\Factories\\": "database/factories"
+            "Soap\\Treasurer\\": "src",
+            "Soap\\Treasurer\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Soap\\LaravelOmise\\Tests\\": "tests"
+            "Soap\\Treasurer\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -55,10 +55,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Soap\\LaravelOmise\\LaravelOmiseServiceProvider"
+                "Soap\\Treasurer\\TreasurerServiceProvider"
             ],
             "aliases": {
-                "LaravelOmise": "Soap\\LaravelOmise\\Facades\\LaravelOmise"
+                "Treasurer": "Soap\\Treasurer\\Facades\\Treasurer"
             }
         }
     },

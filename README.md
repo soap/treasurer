@@ -1,15 +1,15 @@
 # Laravel integration for OMISE payment service
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/soap/laravel-omise.svg?style=flat-square)](https://packagist.org/packages/soap/laravel-omise)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/soap/laravel-omise/run-tests?label=tests)](https://github.com/soap/laravel-omise/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/soap/laravel-omise/Check%20&%20fix%20styling?label=code%20style)](https://github.com/soap/laravel-omise/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/soap/laravel-omise.svg?style=flat-square)](https://packagist.org/packages/soap/laravel-omise)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/soap/treasurer.svg?style=flat-square)](https://packagist.org/packages/soap/treasurer)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/soap/treasurer/run-tests?label=tests)](https://github.com/soap/treasurer/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/soap/treasurer/Check%20&%20fix%20styling?label=code%20style)](https://github.com/soap/treasurer/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/soap/treasurer.svg?style=flat-square)](https://packagist.org/packages/soap/treasurer)
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
 ## Support us
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-omise.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-omise)
+[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/treasurer.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/treasurer)
 
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
@@ -20,26 +20,26 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 You can install the package via composer:
 
 ```bash
-composer require soap/laravel-omise
+composer require soap/treasurer
 ```
 
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-omise-migrations"
+php artisan vendor:publish --tag="treasurer-migrations"
 php artisan migrate
 ```
 
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-omise-config"
+php artisan vendor:publish --tag="treasurer-config"
 ```
 
 Optionally, you can publish the views using
 
 ```bash
-php artisan vendor:publish --tag="laravel-omise-views"
+php artisan vendor:publish --tag="treasurer-views"
 ```
 
 This is the contents of the published config file:
@@ -52,8 +52,8 @@ return [
 ## Usage
 
 ```php
-$laravel-omise = new Soap\LaravelOmise();
-echo $laravel-omise->echoPhrase('Hello, Soap!');
+$treasurer = new Soap\Treasurer();
+echo $treasurer->echoPhrase('Hello, Soap!');
 ```
 
 ## Testing

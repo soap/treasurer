@@ -1,8 +1,8 @@
 <?php
 
-namespace Soap\LaravelOmise;
+namespace Soap\Treasurer;
 
-use Soap\LaravelOmise\Concerns\PerformsCharges;
+use Soap\Treasurer\Concerns\PerformsCharges;
 
 trait Billable
 {

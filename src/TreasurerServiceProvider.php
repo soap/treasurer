@@ -1,12 +1,12 @@
 <?php
 
-namespace Soap\LaravelOmise;
+namespace Soap\Treasurer;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Soap\LaravelOmise\Commands\LaravelOmiseCommand;
+use Soap\Treasurer\Commands\OmiseCustomersCommand;
 
-class LaravelOmiseServiceProvider extends PackageServiceProvider
+class TreasurerServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -16,10 +16,10 @@ class LaravelOmiseServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('laravel-omise')
+            ->name('treasurer')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_laravel-omise_table')
-            ->hasCommand(LaravelOmiseCommand::class);
+            ->hasMigration('create_treasurer_table')
+            ->hasCommand(OmiseCustomersCommand::class);
     }
 }
