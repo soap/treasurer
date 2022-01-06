@@ -7,5 +7,4 @@ use Soap\LaravelOmise\Concerns\PerformsCharges;
 trait Billable
 {
     use PerformsCharges;
-
 }

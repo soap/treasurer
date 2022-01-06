@@ -2,9 +2,9 @@
 
 namespace Soap\LaravelOmise;
 
+use Soap\LaravelOmise\Commands\LaravelOmiseCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Soap\LaravelOmise\Commands\LaravelOmiseCommand;
 
 class LaravelOmiseServiceProvider extends PackageServiceProvider
 {
