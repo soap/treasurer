@@ -1,10 +1,10 @@
 <?php
 
-namespace Soap\LaravelOmise\Tests;
+namespace Soap\Treasurer\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Soap\LaravelOmise\LaravelOmiseServiceProvider;
+use Soap\Treasurer\TreasurerServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -20,7 +20,7 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            LaravelOmiseServiceProvider::class,
+            TreasurerServiceProvider::class,
         ];
     }
 

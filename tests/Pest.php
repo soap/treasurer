@@ -1,5 +1,5 @@
 <?php
 
-use Soap\LaravelOmise\Tests\TestCase;
+use Soap\Treasurer\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);
