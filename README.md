@@ -1,7 +1,7 @@
 # Laravel integration for OMISE payment service
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/soap/treasurer.svg?style=flat-square)](https://packagist.org/packages/soap/treasurer)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/soap/treasurer/run-tests?label=tests)](https://github.com/soap/treasurer/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![run-tests](https://github.com/soap/treasurer/actions/workflows/run-tests.yml/badge.svg)](https://github.com/soap/treasurer/actions/workflows/run-tests.yml)
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/soap/treasurer/Check%20&%20fix%20styling?label=code%20style)](https://github.com/soap/treasurer/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/soap/treasurer.svg?style=flat-square)](https://packagist.org/packages/soap/treasurer)
 
