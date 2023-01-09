@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/soap/treasurer.svg?style=flat-square)](https://packagist.org/packages/soap/treasurer)
 [![run-tests](https://github.com/soap/treasurer/actions/workflows/run-tests.yml/badge.svg)](https://github.com/soap/treasurer/actions/workflows/run-tests.yml)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/soap/treasurer/Check%20&%20fix%20styling?label=code%20style)](https://github.com/soap/treasurer/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![Check & fix styling](https://github.com/soap/treasurer/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/soap/treasurer/actions/workflows/php-cs-fixer.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/soap/treasurer.svg?style=flat-square)](https://packagist.org/packages/soap/treasurer)
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
