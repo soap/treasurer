@@ -1,17 +1,60 @@
 <?php
 
-namespace Soap\LaravelOmise;
+namespace Soap\Treasurer;
 
-class LaravelOmise
+class Treasurer
 {
     protected static $url;
     protected static $public_key;
     protected static $secret_key;
 
-    protected static function init()
+    private $canInitialize = false;
+
+    public function __construct()
     {
-        self::$url = config('laravel-omise.url');
-        self::$public_key = config('laravel-omise.public_key');
-        self::$secret_key = config('laravel-omise.secret_key');
+        $this->init();
     }
+
+    private function init()
+    {
+        // Initialize only if both keys are present
+        if ($this->getPublicKey() && $this->getSecretKey()) {
+            $this->canInitialize = true;
+        }
+    }
+
+    public function canInitialize()
+    {
+        return $this->canInitialize;
+    }
+
+    public function getUrl()
+    {
+       return config('treasure.url');
+    }
+    
+    public function isSandboxEnabled()
+    {
+        return config('treasurer.sandbox_status');
+    }
+
+    public function getPublicKey()
+    {
+        if ($this->isSandboxEnabled()) {
+            return config('treasurer.test_public_key');
+        }
+        
+        return  config('treasurer.live_public_key');
+    }
+
+    public function getSecretKey()
+    {
+        if ($this->isSandboxEnabled()) {
+            return config('treasurer.test_secret_key');
+        }
+
+        return  config('treasurer.live_secret_key');
+    }
+
+
 }

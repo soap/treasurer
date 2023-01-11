@@ -1,6 +1,6 @@
 <?php
 
-namespace Soap\LaravelOmise\Concerns;
+namespace Soap\Treasurer\Concerns;
 
 trait PerformsCharges
 {

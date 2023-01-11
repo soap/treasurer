@@ -8,12 +8,14 @@ use Soap\Treasurer\TreasurerServiceProvider;
 
 class TestCase extends Orchestra
 {
+    protected $loadEnvironmentVariables = true;
+
     protected function setUp(): void
     {
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Soap\\LaravelOmise\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Soap\\Treasurer\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
@@ -26,6 +28,9 @@ class TestCase extends Orchestra
 
     public function getEnvironmentSetUp($app)
     {
+        // not work yet
+        $app->loadEnvironmentFrom('.env.testing');
+
         config()->set('database.default', 'testing');
 
         /*

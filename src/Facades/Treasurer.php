@@ -1,16 +1,16 @@
 <?php
 
-namespace Soap\LaravelOmise\Facades;
+namespace Soap\Treasurer\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \Soap\LaravelOmise\LaravelOmise
  */
-class LaravelOmise extends Facade
+class Treasurer extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'laravel-omise';
+        return 'treasurer';
     }
 }

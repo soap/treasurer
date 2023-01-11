@@ -22,4 +22,9 @@ class TreasurerServiceProvider extends PackageServiceProvider
             ->hasMigration('create_treasurer_table')
             ->hasCommand(OmiseCustomersCommand::class);
     }
+
+    public function packageRegistered()
+    {
+        $this->app->singleton(Treasurer::class);
+    }
 }
