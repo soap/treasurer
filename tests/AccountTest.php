@@ -6,6 +6,6 @@ it('contains account email', function () {
 
     $account = OmiseAccount::retrieve($publicKey, $secretKey);
     expect($account)->toMatchArray([
-        'email' => 'prasit.gebsaap@gmail.com'
+        'email' => 'prasit.gebsaap@gmail.com',
     ]);
 });

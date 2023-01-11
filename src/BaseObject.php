@@ -4,15 +4,14 @@ namespace Soap\Treasurer;
 
 class BaseObject
 {
-    
     protected $object;
-    
+
     /**
-     * 
+     *
      * @param mixed $object of \Soap\Treasurer\BaseObject.
-     * @return $this 
+     * @return $this
      */
-    protected function refresh($object = null) 
+    protected function refresh($object = null)
     {
         if ($this->object == null && $object == null) {
             return $this;
@@ -36,6 +35,4 @@ class BaseObject
     {
         return isset($this->object[$key]) ? $this->object[$key] : null;
     }
-
-
 }

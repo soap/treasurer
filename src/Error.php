@@ -7,7 +7,7 @@ class Error extends BaseObject
     /**
      * @var string
      */
-    protected $code    = 'unexpected_error';
+    protected $code = 'unexpected_error';
     protected $message = 'There is an unexpected error happened, please contact our support for further investigation.';
 
     public function __construct($error = [])

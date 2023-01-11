@@ -41,7 +41,7 @@ class Charge extends BaseObject
 
     /**
      * @param  string $id
-     * @param  integer|null $storeId
+     * @param  int|null $storeId
      *
      * @return Omise\Payment\Model\Api\Error|self
      */
@@ -52,8 +52,8 @@ class Charge extends BaseObject
             $this->refresh(OmiseCharge::retrieve($id, $this->treasurer->getPublicKey(), $this->treasurer->getSecretKey()));
         } catch (Exception $e) {
             return new Error([
-                'code'    => 'not_found',
-                'message' => $e->getMessage()
+                'code' => 'not_found',
+                'message' => $e->getMessage(),
             ]);
         }
 
@@ -62,8 +62,8 @@ class Charge extends BaseObject
 
     /**
      * Create charge object
-     * @param mixed $params 
-     * @return Error|$this 
+     * @param mixed $params
+     * @return Error|$this
      */
     public function create($params)
     {
@@ -71,8 +71,8 @@ class Charge extends BaseObject
             $this->refresh(OmiseCharge::create($params));
         } catch (Exception $e) {
             return new Error([
-                'code'    => 'bad_request',
-                'message' => $e->getMessage()
+                'code' => 'bad_request',
+                'message' => $e->getMessage(),
             ]);
         }
 
@@ -88,8 +88,8 @@ class Charge extends BaseObject
             $this->refresh($this->object->capture());
         } catch (Exception $e) {
             return new Error([
-                'code'    => 'failed_capture',
-                'message' => $e->getMessage()
+                'code' => 'failed_capture',
+                'message' => $e->getMessage(),
             ]);
         }
 
@@ -106,6 +106,7 @@ class Charge extends BaseObject
         } catch (Exception $e) {
             throw new Exception(__('Failed to refund : ' . $e->getMessage()));
         }
+
         return $refund;
     }
 
@@ -132,7 +133,7 @@ class Charge extends BaseObject
      */
     public function isUnauthorized()
     {
-        return !$this->isAuthorized();
+        return ! $this->isAuthorized();
     }
 
     /**
@@ -148,7 +149,7 @@ class Charge extends BaseObject
      */
     public function isUnpaid()
     {
-        return !$this->isPaid();
+        return ! $this->isPaid();
     }
 
     /**
@@ -192,7 +193,7 @@ class Charge extends BaseObject
     {
         $refundedAmount = 0;
 
-        if (!$this->refunds) {
+        if (! $this->refunds) {
             return $refundedAmount;
         }
 

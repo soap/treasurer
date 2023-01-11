@@ -30,9 +30,9 @@ class Treasurer
 
     public function getUrl()
     {
-       return config('treasure.url');
+        return config('treasure.url');
     }
-    
+
     public function isSandboxEnabled()
     {
         return config('treasurer.sandbox_status');
@@ -43,7 +43,7 @@ class Treasurer
         if ($this->isSandboxEnabled()) {
             return config('treasurer.test_public_key');
         }
-        
+
         return  config('treasurer.live_public_key');
     }
 
@@ -55,6 +55,4 @@ class Treasurer
 
         return  config('treasurer.live_secret_key');
     }
-
-
 }
