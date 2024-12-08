@@ -7,8 +7,7 @@ class BaseObject
     protected $object;
 
     /**
-     *
-     * @param mixed $object of \Soap\Treasurer\BaseObject.
+     * @param  mixed  $object  of \Soap\Treasurer\BaseObject.
      * @return $this
      */
     protected function refresh($object = null)
@@ -27,8 +26,9 @@ class BaseObject
     }
 
     /**
-     * @param  string $key
+     * @param  string  $key
      * @return mixed
+     *
      * @throws Exception
      */
     public function __get($key)

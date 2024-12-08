@@ -5,7 +5,9 @@ namespace Soap\Treasurer;
 class Treasurer
 {
     protected static $url;
+
     protected static $public_key;
+
     protected static $secret_key;
 
     private $canInitialize = false;
@@ -44,7 +46,7 @@ class Treasurer
             return config('treasurer.test_public_key');
         }
 
-        return  config('treasurer.live_public_key');
+        return config('treasurer.live_public_key');
     }
 
     public function getSecretKey()
@@ -53,6 +55,6 @@ class Treasurer
             return config('treasurer.test_secret_key');
         }
 
-        return  config('treasurer.live_secret_key');
+        return config('treasurer.live_secret_key');
     }
 }

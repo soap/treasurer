@@ -9,8 +9,9 @@ class Customer extends BaseObject
 {
     /**
      * Injecting dependencies
-     * @param \Omise\Payment\Model\Config\Config $config
-     * @param \Magento\Store\Model\StoreManagerInterface $storeManager
+     *
+     * @param  \Omise\Payment\Model\Config\Config  $config
+     * @param  \Magento\Store\Model\StoreManagerInterface  $storeManager
      */
     public function __construct()
     {
@@ -18,21 +19,20 @@ class Customer extends BaseObject
     }
 
     /**
-     * @param  string $id
-     *
+     * @param  string  $id
      * @return Omise\Payment\Model\Api\Error|self
      */
     public function find($id)
     {
-        if (!$this->config->canInitialize()) {
+        if (! $this->config->canInitialize()) {
             return;
         }
         try {
             $this->refresh(OmiseCustomer::retrieve($id));
         } catch (Exception $e) {
             return new Error([
-                'code'    => 'not_found',
-                'message' => $e->getMessage()
+                'code' => 'not_found',
+                'message' => $e->getMessage(),
             ]);
         }
 
@@ -40,8 +40,7 @@ class Customer extends BaseObject
     }
 
     /**
-     * @param  array $params
-     *
+     * @param  array  $params
      * @return Omise\Payment\Model\Api\Error|self
      */
     public function create($params)
@@ -50,8 +49,8 @@ class Customer extends BaseObject
             $this->refresh(OmiseCustomer::create($params));
         } catch (Exception $e) {
             return new Error([
-                'code'    => 'bad_request',
-                'message' => $e->getMessage()
+                'code' => 'bad_request',
+                'message' => $e->getMessage(),
             ]);
         }
 
@@ -59,8 +58,7 @@ class Customer extends BaseObject
     }
 
     /**
-     * @param  array $params
-     *
+     * @param  array  $params
      * @return \Omise\Payment\Model|\Api\Error|self
      */
     public function update($params)
@@ -70,8 +68,8 @@ class Customer extends BaseObject
             $this->refresh($this->object);
         } catch (Exception $e) {
             return new Error([
-                'code'    => 'bad_request',
-                'message' => $e->getMessage()
+                'code' => 'bad_request',
+                'message' => $e->getMessage(),
             ]);
         }
 
@@ -85,3 +83,4 @@ class Customer extends BaseObject
     {
         return $this->object->cards($options);
     }
+}

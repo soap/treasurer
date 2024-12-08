@@ -2,6 +2,4 @@
 
 namespace Soap\Treasurer\Concerns;
 
-trait PerformsCharges
-{
-}
+trait PerformsCharges {}

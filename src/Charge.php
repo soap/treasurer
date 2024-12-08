@@ -8,28 +8,28 @@ use OmiseCharge;
 /**
  * @property string $object
  * @property string $id
- * @property bool   $livemode
+ * @property bool $livemode
  * @property string $location
- * @property int    $amount
+ * @property int $amount
  * @property string $currency
  * @property string $description
- * @property bool   $capture
- * @property bool   $authorized
- * @property bool   $reversed
- * @property bool   $captured
+ * @property bool $capture
+ * @property bool $authorized
+ * @property bool $reversed
+ * @property bool $captured
  * @property string $transaction
- * @property int    $refunded
- * @property array  $refunds
+ * @property int $refunded
+ * @property array $refunds
  * @property string $failure_code
  * @property string $failure_message
- * @property array  $card
+ * @property array $card
  * @property string $customer
  * @property string $ip
  * @property string $dispute
  * @property string $created
  *
  * @see      https://www.omise.co/charges-api
-*/
+ */
 class Charge extends BaseObject
 {
     private $treasurer;
@@ -40,9 +40,8 @@ class Charge extends BaseObject
     }
 
     /**
-     * @param  string $id
-     * @param  int|null $storeId
-     *
+     * @param  string  $id
+     * @param  int|null  $storeId
      * @return Omise\Payment\Model\Api\Error|self
      */
     public function find($id, $storeId = null)
@@ -62,7 +61,8 @@ class Charge extends BaseObject
 
     /**
      * Create charge object
-     * @param mixed $params
+     *
+     * @param  mixed  $params
      * @return Error|$this
      */
     public function create($params)
@@ -104,15 +104,14 @@ class Charge extends BaseObject
         try {
             $refund = $this->object->refund($refundData);
         } catch (Exception $e) {
-            throw new Exception(__('Failed to refund : ' . $e->getMessage()));
+            throw new Exception(__('Failed to refund : '.$e->getMessage()));
         }
 
         return $refund;
     }
 
     /**
-     * @param  string $field
-     *
+     * @param  string  $field
      * @return mixed
      */
     public function getMetadata($field)
