@@ -27,6 +27,7 @@ class Customer extends BaseObject
         if (! $this->config->canInitialize()) {
             return;
         }
+
         try {
             $this->refresh(OmiseCustomer::retrieve($id));
         } catch (Exception $e) {
