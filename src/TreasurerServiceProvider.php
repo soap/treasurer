@@ -3,7 +3,6 @@
 namespace Soap\Treasurer;
 
 use Soap\Treasurer\Commands\OmiseCustomersCommand;
-use Soap\Treasurer\Treasurer;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
