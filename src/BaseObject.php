@@ -12,14 +12,15 @@ class BaseObject
      */
     protected function refresh($object = null)
     {
+        dd($object);
         if ($this->object == null && $object == null) {
             return $this;
         }
 
         if ($object != null) {
             $this->object = $object;
-        } elseif (method_exists($this->object, 'refresh')) {
-            $this->object->refresh();
+        } elseif (method_exists($this->object, 'reload')) {
+            $this->object->reload();
         }
 
         return $this;
@@ -28,8 +29,6 @@ class BaseObject
     /**
      * @param  string  $key
      * @return mixed
-     *
-     * @throws Exception
      */
     public function __get($key)
     {

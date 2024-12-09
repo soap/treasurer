@@ -42,7 +42,7 @@ class Charge extends BaseObject
     /**
      * @param  string  $id
      * @param  int|null  $storeId
-     * @return Omise\Payment\Model\Api\Error|self
+     * @return \Soap\Treasurer\Error|self
      */
     public function find($id, $storeId = null)
     {
@@ -63,12 +63,12 @@ class Charge extends BaseObject
      * Create charge object
      *
      * @param  mixed  $params
-     * @return Error|$this
+     * @return \Soap\Treasurer\Error|self
      */
     public function create($params)
     {
         try {
-            $this->refresh(OmiseCharge::create($params));
+            $this->refresh(OmiseCharge::create($params, $this->treasurer->getPublicKey(), $this->treasurer->getSecretKey()));
         } catch (Exception $e) {
             return new Error([
                 'code' => 'bad_request',
@@ -80,7 +80,7 @@ class Charge extends BaseObject
     }
 
     /**
-     * @return Omise\Payment\Model\Api\Error|self
+     * @return \Soap\Treasurer\Error|self
      */
     public function capture()
     {
@@ -97,7 +97,9 @@ class Charge extends BaseObject
     }
 
     /**
-     * @return Omise\Payment\Model\Api\Error|OmiseRefund
+     * @return \Soap\Treasurer\Error|OmiseRefund
+     *
+     * @throws Exception
      */
     public function refund($refundData)
     {
@@ -119,71 +121,47 @@ class Charge extends BaseObject
         return ($this->metadata != null && isset($this->metadata[$field])) ? $this->metadata[$field] : null;
     }
 
-    /**
-     * @return bool
-     */
-    public function isAuthorized()
+    public function isAuthorized(): bool
     {
         return $this->authorized;
     }
 
-    /**
-     * @return bool
-     */
-    public function isUnauthorized()
+    public function isUnauthorized(): bool
     {
         return ! $this->isAuthorized();
     }
 
-    /**
-     * @return bool
-     */
-    public function isPaid()
+    public function isPaid(): bool
     {
         return $this->paid != null ? $this->paid : $this->captured;
     }
 
-    /**
-     * @return bool
-     */
-    public function isUnpaid()
+    public function isUnpaid(): bool
     {
         return ! $this->isPaid();
     }
 
-    /**
-     * @return bool
-     */
-    public function isAwaitCapture()
+    public function isAwaitCapture(): bool
     {
         return $this->status === 'pending' && $this->isAuthorized() && $this->isUnpaid();
     }
 
-    /**
-     * @return bool
-     */
-    public function isAwaitPayment()
+    public function isAwaitPayment(): bool
     {
         return $this->status === 'pending' && $this->isUnauthorized() && $this->isUnpaid();
     }
 
-    /**
-     * @return bool
-     */
-    public function isSuccessful()
+    public function isSuccessful(): bool
     {
         return $this->status === 'successful' && $this->isPaid();
     }
 
-    /**
-     * @return bool
-     */
-    public function isFailed()
+    public function isFailed(): bool
     {
         return $this->status === 'failed';
     }
 
-    public function getAmount()
+    public function getAmount(): bool
     {
         return $this->amount;
     }
@@ -203,7 +181,7 @@ class Charge extends BaseObject
         return $refundedAmount;
     }
 
-    public function isFullyRefunded()
+    public function isFullyRefunded(): bool
     {
         return (($this->amount / 100) - $this->getRefundedAmount()) === 0;
     }

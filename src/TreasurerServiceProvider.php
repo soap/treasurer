@@ -18,7 +18,7 @@ class TreasurerServiceProvider extends PackageServiceProvider
         $package
             ->name('treasurer')
             ->hasConfigFile()
-            ->hasViews()
+            ->hasTranslations()
             ->hasMigration('create_treasurer_table')
             ->hasCommand(OmiseCustomersCommand::class);
     }

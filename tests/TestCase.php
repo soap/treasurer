@@ -5,6 +5,7 @@ namespace Soap\Treasurer\Tests;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Soap\Treasurer\TreasurerServiceProvider;
+use Spatie\LaravelRay\RayServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -23,6 +24,7 @@ class TestCase extends Orchestra
     {
         return [
             TreasurerServiceProvider::class,
+            RayServiceProvider::class,
         ];
     }
 
