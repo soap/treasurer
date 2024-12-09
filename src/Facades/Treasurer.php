@@ -11,6 +11,6 @@ class Treasurer extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'treasurer';
+        return 'Treasurer';
     }
 }
