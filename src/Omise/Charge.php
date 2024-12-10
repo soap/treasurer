@@ -29,7 +29,7 @@ use Soap\Treasurer\Treasurer;
  * @property string $ip
  * @property string $dispute
  * @property string $created
- * 
+ *
  * @method authorizeUri()
  *
  * @see      https://www.omise.co/charges-api
