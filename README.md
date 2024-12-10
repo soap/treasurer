@@ -46,15 +46,51 @@ This is the contents of the published config file:
 
 ```php
 return [
+
+    'url' => 'https://api.omise.co',
+
+    'live_public_key' => env('OMISE_LIVE_PUBLIC_KEY', ''),
+    'live_secret_key' => env('OMISE_LIVE_SECRET_KEY', ''),
+
+    'test_public_key' => env('OMISE_TEST_PUBLIC_KEY', ''),
+    'test_secret_key' => env('OMISE_TEST_SECRET_KEY', ''),
+
+    'api_version' => env('OMISE_API_VERSION', '2019-05-29'),
+
+    'sanbox_status' => env('OMISE_SANDBOX_STATUS', true),
 ];
 ```
 
 ## Usage
 
+Firstly, you have to register for OMISE payment service. Then fill in your keys in .env file.
+
+You can retreive Public key or Secret key like this (it will provide LIVE or TEST key depending on your configuration.)
 ```php
-$treasurer = new Soap\Treasurer();
-echo $treasurer->echoPhrase('Hello, Soap!');
+$treasurer = app(\Soap\Treasurer\Treasure::class);
+
+$publicKey = $treasurer->getPublicKey();
+$secretKey = $treasurer->getSecretKey();
+
 ```
+### Note for all Omise wrapper classes, like Charge, Customer, Account etc.
+When you make a call to each API call, the object will have access to response array using $object->$key or $object->$key(). These keys are provided in response API array by Omise.
+For example Charge API response array will be:
+```php
+#_values => [
+  'object' => 'charge',
+  'id' => 'chrg_tes_6131313133131344',
+  'amount' => 2000,
+  'fee_vat' => 51, 
+   ...   
+];
+```
+Then you can get them like this:
+```php
+  $charge->amount(); // $charge->amount;
+  $charg->feeVat(); // $charge->fee_vat;
+```
+For each of Omise wrapper class, you can call without worry about Public key and Secret key. And the package (early version) provides an ease way to get return values from Omise like above.
 
 ## Testing
 
