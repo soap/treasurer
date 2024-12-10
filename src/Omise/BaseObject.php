@@ -2,6 +2,9 @@
 
 namespace Soap\Treasurer\Omise;
 
+use Illuminate\Support\Str;
+
+#[AllowDynamicProperties]
 class BaseObject
 {
     protected $object;
@@ -34,5 +37,19 @@ class BaseObject
     public function __get($key)
     {
         return isset($this->object[$key]) ? $this->object[$key] : null;
+    }
+
+    /**
+     * Call the method from object by the key like $object->$key().
+     *
+     * @param  string  $method
+     * @param  array  $args
+     * @return mixed
+     */
+    public function __call($method, $args)
+    {
+        $key = Str::snake($method);
+        
+        return $this->$key;
     }
 }
