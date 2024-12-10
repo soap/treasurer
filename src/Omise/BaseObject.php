@@ -27,6 +27,7 @@ class BaseObject
 
     /**
      * Get array values from object by the key like $object->$key.
+     *
      * @param  string  $key
      * @return mixed
      */

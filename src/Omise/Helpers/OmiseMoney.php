@@ -52,7 +52,7 @@ class OmiseMoney
     /**
      * convert omise amount to human readable amount.
      */
-    public static function convertCurrencyUnit($amount, $currency)
+    public static function toCurrencyUnit($amount, $currency)
     {
         $amount = self::purifyAmount($amount);
         $currency = strtoupper($currency);

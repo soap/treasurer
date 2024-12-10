@@ -4,9 +4,11 @@ namespace Soap\Treasurer\Omise;
 
 use Exception;
 use OmiseCharge;
+use Soap\Treasurer\Omise\Helpers\OmiseMoney;
+use Soap\Treasurer\Treasurer;
 
 /**
- * @property string $object
+ * @property object $object
  * @property string $id
  * @property bool $livemode
  * @property string $location
@@ -42,7 +44,7 @@ class Charge extends BaseObject
     /**
      * @param  string  $id
      * @param  int|null  $storeId
-     * @return \Soap\Treasurer\Error|self
+     * @return \Soap\Treasurer\Omise\Error|self
      */
     public function find($id, $storeId = null)
     {
@@ -63,7 +65,7 @@ class Charge extends BaseObject
      * Create charge object
      *
      * @param  mixed  $params
-     * @return \Soap\Treasurer\Error|self
+     * @return \Soap\Treasurer\Omise\Error|self
      */
     public function create($params)
     {
@@ -80,7 +82,7 @@ class Charge extends BaseObject
     }
 
     /**
-     * @return \Soap\Treasurer\Error|self
+     * @return \Soap\Treasurer\Omise\Error|self
      */
     public function capture()
     {
@@ -97,7 +99,7 @@ class Charge extends BaseObject
     }
 
     /**
-     * @return \Soap\Treasurer\Error|OmiseRefund
+     * @return \Soap\Treasurer\Omise\Error|OmiseRefund
      *
      * @throws Exception
      */
@@ -161,9 +163,14 @@ class Charge extends BaseObject
         return $this->status === 'failed';
     }
 
-    public function getAmount(): bool
+    public function getRawAmount()
     {
         return $this->amount;
+    }
+
+    public function getAmount()
+    {
+        return OmiseMoney::convertToCurrency($this->amount, $this->currency);
     }
 
     public function getRefundedAmount()

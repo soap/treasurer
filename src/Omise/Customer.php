@@ -4,9 +4,12 @@ namespace Soap\Treasurer\Omise;
 
 use Exception;
 use OmiseCustomer;
+use Soap\Treasurer\Treasurer;
 
 class Customer extends BaseObject
 {
+    private $treasurer;
+
     /**
      * Injecting dependencies
      */
@@ -17,12 +20,12 @@ class Customer extends BaseObject
 
     /**
      * @param  string  $id
-     * @return Omise\Payment\Model\Api\Error|self
+     * @return \Soap\Treasurer\Omise\Error|self
      */
     public function find($id)
     {
         try {
-            $this->refresh(OmiseCustomer::retrieve($id));
+            $this->refresh(OmiseCustomer::retrieve($id, $this->treasurer->getPublicKey(), $this->treasurer->getSecretKey()));
         } catch (Exception $e) {
             return new Error([
                 'code' => 'not_found',
@@ -35,12 +38,12 @@ class Customer extends BaseObject
 
     /**
      * @param  array  $params
-     * @return Omise\Payment\Model\Api\Error|self
+     * @return \Soap\Treasurer\Omise\Error|self
      */
     public function create($params)
     {
         try {
-            $this->refresh(OmiseCustomer::create($params));
+            $this->refresh(OmiseCustomer::create($params, $this->treasurer->getPublicKey(), $this->treasurer->getSecretKey()));
         } catch (Exception $e) {
             return new Error([
                 'code' => 'bad_request',
@@ -53,7 +56,7 @@ class Customer extends BaseObject
 
     /**
      * @param  array  $params
-     * @return \Omise\Payment\Model|\Api\Error|self
+     * @return \Soap\Treasurer\Omise\Error|self
      */
     public function update($params)
     {
