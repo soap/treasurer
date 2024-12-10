@@ -1,6 +1,6 @@
 <?php
 
-namespace Soap\Treasurer;
+namespace Soap\Treasurer\Omise;
 
 class BaseObject
 {
@@ -12,7 +12,6 @@ class BaseObject
      */
     protected function refresh($object = null)
     {
-        dd($object);
         if ($this->object == null && $object == null) {
             return $this;
         }
@@ -27,6 +26,7 @@ class BaseObject
     }
 
     /**
+     * Get array values from object by the key like $object->$key.
      * @param  string  $key
      * @return mixed
      */

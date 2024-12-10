@@ -1,6 +1,6 @@
 <?php
 
-namespace Soap\Treasurer\Omise;
+namespace Soap\Treasurer\Omise\Helpers;
 
 use Exception;
 

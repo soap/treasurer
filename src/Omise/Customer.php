@@ -1,6 +1,6 @@
 <?php
 
-namespace Soap\Treasurer;
+namespace Soap\Treasurer\Omise;
 
 use Exception;
 use OmiseCustomer;
@@ -9,13 +9,10 @@ class Customer extends BaseObject
 {
     /**
      * Injecting dependencies
-     *
-     * @param  \Omise\Payment\Model\Config\Config  $config
-     * @param  \Magento\Store\Model\StoreManagerInterface  $storeManager
      */
-    public function __construct()
+    public function __construct(Treasurer $treasurer)
     {
-        $this->config = $config;
+        $this->treasurer = $treasurer;
     }
 
     /**
@@ -24,10 +21,6 @@ class Customer extends BaseObject
      */
     public function find($id)
     {
-        if (! $this->config->canInitialize()) {
-            return;
-        }
-
         try {
             $this->refresh(OmiseCustomer::retrieve($id));
         } catch (Exception $e) {

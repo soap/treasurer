@@ -1,6 +1,6 @@
 <?php
 
-namespace Soap\Treasurer;
+namespace Soap\Treasurer\Omise;
 
 use Exception;
 use OmiseCharge;

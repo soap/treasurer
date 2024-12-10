@@ -1,6 +1,6 @@
 <?php
 
-use Soap\Treasurer\Omise\OmiseMoney;
+use Soap\Treasurer\Omise\Helpers\OmiseMoney;
 
 it('can convert amount of ideal input', function () {
     $amount = 845;
